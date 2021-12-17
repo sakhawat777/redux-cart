@@ -2,6 +2,7 @@ import React from 'react';
 
 const Product = (props) => {
 	const { name, id } = props.product;
+	const { addToCart, product } = props;
 	return (
 		<div
 			style={{
@@ -9,8 +10,8 @@ const Product = (props) => {
 				margin: '50px 50px 50px 50px',
 				padding: '20px 20px 20px 20px',
 			}}>
-			<h5>{name}</h5>
-			<button>add to cart</button>
+			<h5>{product.name}</h5>
+			<button onClick={() => addToCart(product.id)}>add to cart</button>
 		</div>
 	);
 };
