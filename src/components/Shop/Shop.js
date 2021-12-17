@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addToCart } from '../../redux/actions/cartActions';
 import Product from '../Product/Product';
 
 const Shop = () => {
@@ -18,5 +20,18 @@ const Shop = () => {
 		</div>
 	);
 };
+// Pass state and ownProps
+const mapStateToProps = (state) => {
+	return {
+		cart: state.cart,
+		products: state.products,
+	};
+};
+// pass actions or even handler
+const mapDispatchToProps = {
+	addToCart: addToCart,
+};
+// const connectToStore = connect(mapStateToProps, mapDispatchToProps);
+// connectToStore(Shop);
 
-export default Shop;
+export default connect(mapStateToProps, mapDispatchToProps)(Shop);
